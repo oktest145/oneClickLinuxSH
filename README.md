@@ -1,21 +1,3 @@
-
-Skip to content
-sign up
-cogitate3
-/
-oneClickLinuxSH
-public
-Code
-Issues
-Pull requests
-Actions
-Projects
-security
-Insights
-oneClickLinuxSH/README.md _
-Cannot retrieve contributors at this time
-192 lines (129 slocs)13.6 KB
-
 #  Easy install v2ray (xray) and trojan (trojan-go) script (ultimate script for all conditions)
  
  
@@ -92,101 +74,101 @@ wget --no-check-certificate https://raw.githubusercontent.com/jinwyp/one_click_s
 ###  Install the command line to start trojan or v2ray
  
 1. This step can be omitted. If you are using Google Cloud Google cloud server, you cannot log in with the root account by default. You can select 32 to enable root user login. It is recommended to use the root user to run the script. Root permissions are required to install bbr plus, and root is considered to be used by default Execution, non-root users please manually add sudo to execute ```sudo ./tcp.sh ``` and ```sudo ./trojan_v2ray_install.sh ``` scripts. (Note that the certificate application also needs to use the root user and is not recommended sudo [ acme.sh documentation ](https://github.com/acmesh-official/acme.sh/wiki/sudo) ).
-2. 安装 BBR plus (或 BBR) 网络加速. 运行脚本 ```./trojan_v2ray_install.sh ``` 选择1 然后 再选择31 安装原版 BBRplus 4.14,129 版内核 , 注意安装过程中会弹出大框的英文提示(下面有示例图)"安装linux内核有风险是否终止", 要选择" NO" 不终止. 安装完毕会重启VPS
-3. 使用BBRplus版 网络加速. 重新登录VPS后, 重新运行脚本 ```./trojan_v2ray_install.sh ``` 选择1 然后 选择3 使用BBRplus 加速. 
-4. 该步骤可省略. 选择31, 安装 oh-my-zsh. 这样以后登录有命令提示, 方便新手操作. 安装完成后请退出VPS, 命令为```exit```. 重新登录VPS后继续下面操作. 
-5. 安装 trojan 或 v2ray. 根据提示 重新运行脚本 ```./trojan_v2ray_install.sh ``` 选2 安装trojan, 或选5 安装trojan-go, 或选11 安装v2ray, 或选21 同时安装trojan和v2ray， 或选24 同时安装trojan-go和v2ray. 强烈建议：如果VPS线路速度可以保证，不需要CDN，强烈建议选12 只安装xray 或只安装5 trojan-go (trojan-go速度已经很快了). 需要CDN可以选11只安装V2ray. 协议安装的越多安全性越低,而且也不会提高速度,适合自己的软件装一种最好. 完全没有必要使用多合一的脚本同时安装多个协议
+2. Install BBR plus (or BBR) network acceleration. Run the script ```./trojan_v2ray_install.sh ``` select 1 and then select 31 to install the original BBRplus 4.14, version 129 kernel, pay attention to the large box in English that will pop up during the installation process Prompt (there is an example picture below) "Installing the linux kernel is risky whether to terminate", you must choose "NO" not to terminate. The VPS will restart after the installation is complete
+3. Use the BBRplus version of network acceleration. After re-login to the VPS, re-run the script ```./trojan_v2ray_install.sh ``` select 1 and then select 3 to use BBRplus acceleration.
+4. This step can be omitted. Select 31 to install oh-my-zsh. In this way, there will be a command prompt after login, which is convenient for novices to operate. After the installation is complete, please exit the VPS, the command is ```exit``` . Re-login to the VPS and continue Operate below.
+5. Install trojan or v2ray. Re-run the script ```./trojan_v2ray_install.sh ``` choose 2 to install trojan, or choose 5 to install trojan-go, or choose 11 to install v2ray, or choose 21 to install both trojan and v2ray , or choose 24 to install trojan-go and v2ray at the same time. Strongly recommend: If the VPS line speed can be guaranteed, CDN is not required, it is strongly recommended to choose 12 to install only xray or only install 5 trojan-go (trojan-go is already very fast) If you need CDN, you can choose 11 to install V2ray. The more protocols are installed, the lower the security, and it will not increase the speed. It is best to install one of the software that suits you. There is no need to use an all-in-one script to install multiple at the same time. protocol
  
-6. 第一步安装 BBR plus 时出现的提示 "是否终止删除内核" 请选择 "NO". 就是要卸载掉目前的内核. 
-![注意 安装BBR plus](https://github.com/jinwyp/one_click_script/blob/master/docs/debian.jpg?raw=true)
-![注意 安装BBR plus](https://github.com/jinwyp/one_click_script/blob/master/docs/kernel.png?raw=true)
-![注意 安装BBR plus](https://github.com/jinwyp/one_click_script/blob/master/docs/ubuntu.png?raw=true)
- 
- 
-### 安装管理面板 Install web admin panel
- 
-1. 在没有安装任何 trojan 和 v2ray 的新机器上(即没有执行过第5步, 执行过可以选择卸载), 选择29 进入子菜单安装 trojan 或 v2ray 可视化管理面板。(如果之前通过其他脚本安装过,再安装可视化管理面板则极易产生问题)
-2. 选择29后 然后再选择1 安装trojan-web可视化管理面板(建议使用centos7系统).根据提示输入域名后, 继续根据提示再选择1.Let's Encrypt 证书, 申请证书成功后. 继续根据提示再选择1.安装docker版mysql(mariadb). ariadb启动成功后,继续根据提示输入第一个trojan用户的账号密码,回车后出现"欢迎使用trojan管理程序" 需要不输入数字直接按回车,这样继续安装nginx直到完成. nginx安装成功会显示可视化管理面板网址,请保存下来. 如果没有显示管理面板网址则表明安装失败. 
-3. 选择29后 然后再选择6 安装v2ray-ui可视化管理面板. 安装成功后可以再次运行本脚本选择29后在选择11申请域名SSL证书. 然后再可视化管理面板新建添加vless账号或trojan账号, 填入证书文件路径 即可同时支持trojan和v2ray.
- 
-### 高级用法 Advanced Usage 与现有网站共存
- 
-1. 如果机器上已经有nginx或已有网站服务, 或是与宝塔面板共同使用, 可以运行脚本后选择30, 然后单独安装不带有nginx的版本。 选择30后再选15, 则V2ray运行在非80和443端口(端口可自定义), 同时没有加密, 然后在宝塔面板或nginx自行修改配置, 让nginx服务于443 https端口, 根据指定的url路径转发到V2ray 端口, 起到加密作用。
-2. 选择30后 再选择12-14 安装trojan或trojan-go, 这样让trojan或trojan-go服务于443 https端口, 与现有的nginx或网站共存, nginx需要修改配置只监听80端口即可。https ssl加密由trojan或trojan-go提供。
-3. 选择30后, 再选择13或14后仅安装trojan-go. 必须保证本机80端口有监听, 否则trojan-go无法启动. 这是trojan-go的一个fallback功能, 非trojan协议的流量会转发到remote_addr和remote_port指定这个HTTP服务器的地址. Trojan-Go将会测试这个HTTP服务器是否工作正常，如果不正常，Trojan-Go会拒绝启动. [参考trojan-go官方文档](https://p4gefau1t.github.io/trojan-go/basic/config/) 
-4. 选择30后 再选择16-24 安装V2ray或Xray, 这样让V2ray或Xray 的 Vless协议服务于443 https端口(端口可自定义), 与现有的nginx或网站共存, nginx需要修改配置只监听80端口即可。https ssl加密由V2ray或Xray 的 Vless协议提供。 推荐选择20的 Xray的Xtls-direct 模式速度最快
-5. 选择30后 再选择15-24 安装V2ray或Xray,都可以自定义端口, 密码和websocket 的path 路径, 默认为随机密码和随机路径. 同时还可以增加一个额外的监听端口与主端口同时使用, 方便不支持443端口的中转机中转给目标主机.
-6. 以上安装都可以选择是否申请证书, 如果已有证书可以不在安装过程中申请, 或多次安装本脚本也可以不需要再次申请。证书位置在 /root/website/cert/fullchain.cer 和 /root/website/cert/private.key, 可以手动放置
+6. When the first step is to install BBR plus, the prompt "Do you want to stop deleting the kernel" please select "NO". It means to uninstall the current kernel.
+![ Attention to install BBR plus ](https://github.com/jinwyp/one_click_script/blob/master/docs/debian.jpg?raw=true)
+![ Attention to install BBR plus ](https://github.com/jinwyp/one_click_script/blob/master/docs/kernel.png?raw=true)
+![ Attention to install BBR plus ](https://github.com/jinwyp/one_click_script/blob/master/docs/ubuntu.png?raw=true)
  
  
-### Netflix Unlock 解锁Netflix 区域限制 和 避免弹出Google人机验证
+###  Install web admin panel Install web admin panel
  
-1. 运行脚本后选择1 进入linux 内核安装菜单, 根据提示安装 linux 内核 5.10或5.11 都可以.
-2. 更换内核重启后, 选择1 进入linux 内核安装菜单, 选择2 使用BBR加速
-3. 重启后, 选择1, 再选择6 安装 Wireguard 和 cloudflare Warp. 
-4. 确认Wireguard启动成功后, 运行脚本后选择11或12 或其他选项 安装v2ray或xray, 安装过程中根据提示 选择netflix 和 google 人机验证 解锁即可, 也可以选择解锁更多的视频网站.
+1. On a new machine that has not installed any trojan and v2ray (that is, step 5 has not been executed, and you can choose to uninstall it), select 29 to enter the submenu to install trojan or v2ray visual management panel. (If it has been installed through other scripts before, it is very easy to cause problems when installing the visual management panel)
+2. Select 29 and then select 1 to install the trojan-web visual management panel (centos7 system is recommended). After entering the domain name according to the prompts, continue to select 1. Let's Encrypt certificate according to the prompts. After the certificate is successfully applied, continue to select according to the prompts 1. Install the docker version of mysql (mariadb). After ariadb starts successfully, continue to enter the account password of the first trojan user according to the prompts, and press Enter to display "Welcome to the trojan management program". You need to press enter without entering a number, and continue in this way Install nginx until it is completed. If the nginx installation is successful, it will display the URL of the visual management panel, please save it. If the URL of the management panel is not displayed, it means that the installation failed.
+3. Select 29 and then select 6 to install the v2ray-ui visual management panel. After the installation is successful, you can run this script again. Select 29 and select 11 to apply for a domain name SSL certificate. Then add a vless account or trojan account to the visual management panel, fill in Enter the certificate file path to support trojan and v2ray at the same time.
  
-## 注意事项与常见问题 FAQ 
+###  Advanced Usage Advanced Usage coexists with existing website
  
-1. 免费域名可以使用 [freenom](https://www.freenom.com/zh/index.html?lang=zh). 注册freenom时需要使用美国IP,否则无法通过注册邮件验证. 请自行搜索教程.
-2. 使用脚本安装时请先关闭CDN, cloudflare.com 中DNS设置页面, 二级域名设置为DNS only 为关闭CDN. 安装v2ray或trojan-go完毕后 可以开启CDN 设置为Proxied 即可. trojan目前不支持CDN, trojan-go 默认安装设置为不支持CDN,可以在安装过程中选择支持CDN.
+1. If there is already nginx or existing website service on the machine, or it is used together with the Pagoda panel, you can run the script and select 30, and then install the version without nginx separately. Select 30 and then select 15, then V2ray will run on ports other than 80 and 443 (ports can be customized) without encryption, and then modify the configuration on the pagoda panel or nginx to make nginx serve on port 443 https, according to the specified url path Forward to the V2ray port for encryption.
+2. Select 30 and then select 12-14 to install trojan or trojan-go, so that trojan or trojan-go can serve on port 443 https and coexist with the existing nginx or website. Nginx needs to modify the configuration to only listen to port 80. https ssl encryption is provided by trojan or trojan-go.
+3. After selecting 30, select 13 or 14 to install only trojan-go. You must ensure that port 80 of the local machine is listening, otherwise trojan-go cannot be started. This is a fallback function of trojan-go, and non-trojan protocol traffic will Forward to remote_addr and remote_port to specify the address of this HTTP server. Trojan-Go will test whether this HTTP server is working properly, if not, Trojan-Go will refuse to start. [ Refer to trojan-go official document ](https://p4gefau1t .github.io/trojan-go/basic/config/)
+4. Select 30 and then select 16-24 to install V2ray or Xray, so that the Vless protocol of V2ray or Xray serves on port 443 https (port can be customized), and coexist with the existing nginx or website, nginx needs to modify the configuration to only listen Port 80 is fine. https ssl encryption is provided by V2ray or Xray's Vless protocol. It is recommended to choose Xray Xtls-direct mode of 20 for the fastest speed
+5. Select 30 and then select 15-24 to install V2ray or Xray, you can customize the port, password and websocket path path, the default is random password and random path. At the same time, you can add an additional listening port to use with the main port at the same time , it is convenient for the transfer machine that does not support port 443 to transfer to the target host.
+6. You can choose whether to apply for a certificate for the above installations. If you already have a certificate, you don’t need to apply for it during the installation process, or you don’t need to apply again if you install this script multiple times. The certificate location is /root/website/cert/fullchain.cer and /root/website/cert/private.key, which can be placed manually
  
-![注意 cloudflare CDN](https://github.com/jinwyp/one_click_script/blob/master/docs/cloudflare1.jpg?raw=true)
  
-3. 以下是Cloudflare CDN 的worker 加速脚本, 请把域名替换成自己的vps的域名. 然后在Cloudflare新建worker 添加即可. 可以通过下面3个工具任选其一, [CFIP][better-cloudflare-ip], [CloudflareScanner], [CloudflareSpeedTest], 在你自己的客户端机器上运行, 找出距离你最快的 cloudflare 的CDN IP, 在v2ray或trojan-go支持CDN的配置中填入该IP即可.
+###  Netflix Unlock Unlock Netflix regional restrictions and avoid pop-up Google captcha
+ 
+1. After running the script, select 1 to enter the linux kernel installation menu, and follow the prompts to install linux kernel 5.10 or 5.11.
+2. After replacing the kernel and restarting, select 1 to enter the linux kernel installation menu, select 2 to use BBR acceleration
+3. After restarting, choose 1, then choose 6 to install Wireguard and cloudflare Warp.
+4. After confirming that Wireguard starts successfully, run the script and select 11 or 12 or other options to install v2ray or xray. During the installation process, select netflix and google human-machine verification to unlock according to the prompts, and you can also choose to unlock more video sites.
+ 
+##  Precautions and FAQ
+ 
+1. You can use [ freenom ](https://www.freenom.com/zh/index.html?lang=zh) for free domain name. When registering freenom, you need to use a US IP, otherwise you will not be able to pass the registration email verification. Please search for tutorials by yourself .
+2. Please turn off the CDN when using the script to install. On the DNS setting page of cloudflare.com, set the secondary domain name to DNS only to turn off the CDN. After installing v2ray or trojan-go, you can turn on the CDN and set it to Proxied. Trojan is currently not available Support CDN, the default installation setting of trojan-go is not to support CDN, you can choose to support CDN during the installation process.
+ 
+![ Note cloudflare CDN ](https://github.com/jinwyp/one_click_script/blob/master/docs/cloudflare1.jpg?raw=true)
+ 
+3. The following is the worker acceleration script of Cloudflare CDN, please replace the domain name with the domain name of your vps. Then create a new worker in Cloudflare and add it. You can choose one of the following 3 tools, [ CFIP ][better-cloudflare- ip], [CloudflareScanner], [CloudflareSpeedTest], run on your own client machine, find out the CDN IP of cloudflare that is the fastest distance from you, and fill in this IP in the configuration of v2ray or trojan-go supporting CDN .
 ```
 addEventListener(
- "fetch", event => {
- let url = new URL(event.request.url);
- url.hostname = "yourdomain.xxx.xx";
- url.protocol = "https";
- let request = new Request(url, event.request);
- event.respondWith(
- fetch(request)
- )
- }
+"fetch", event => {
+let url = new URL(event.request.url);
+url.hostname = "yourdomain.xxx.xx";
+url.protocol = "https";
+let request = new Request(url, event.request);
+event.respondWith(
+fetch(request)
+)
+}
 )
 ```
  
-## 关于Let's Encrypt证书
-本脚本使用的acme.sh来申请的Let's Encrypt免费证书。三个月需要续期，本脚本通过cron自动完成续期的，无需用户操作。但Let's Encrypt 申请证书有一些限制，如下：
+##  About Let's Encrypt certificate
+This script uses acme.sh to apply for a free Let's Encrypt certificate. Renewal is required for three months. This script automatically completes the renewal through cron without user operation. But Let's Encrypt has some restrictions on applying for certificates, as follows:
  
-Let's Encrypt证书申请频率的限制
+Frequency limit of Let's Encrypt certificate application
  
-1. 同一个主域名一周之内只能申请50个证书
-2. 每个账号下每个域名每小时申请验证失败的次数为5次
-3. 每周只能创建5个重复的证书，即使是通过不同的账号进行创建
-4. 每个账号同一个IP地址每3小时最多可以创建10个证书
-5. 每个多域名（SAN） SSL证书（不是通配符域名证书）最多只能包含100个子域
-6. 更新证书没有次数的限制，但是更新证书会受到上述重复证书的限制
-7. 如果提示证书申请失败，可以尝试更换域名再试（添加或换不同的二级域名，也算是新域名）
-8. 同一IP地址，在短时间内过于频繁的申请证书，也会被限制，此时更换域名也无法申请成功，只能等待一段时间，或者更换Ip.
- 
- 
-## 特别感谢 Special Thanks
- 
-1. 脚本感谢 https://github.com/sprov065/v2-ui 
-2. 脚本感谢 https://github.com/Jrohy/trojan 
-3. 脚本感谢 https://github.com/v2fly/v2ray-core
-4. 脚本感谢 https://github.com/XTLS/Xray-core
-5. 脚本感谢 https://github.com/trojan-gfw/trojan
-6. 脚本感谢 https://github.com/p4gefau1t/trojan-go
-7. 脚本感谢 https://github.com/ylx2016/Linux-NetSpeed
-8. 脚本感谢 秋水逸冰、Atrandys、V2ray官方 和 波仔分享 等 
-9. 脚本感谢 JCNF的博客 https://ybfl.xyz/111.html
+1. The same main domain name can only apply for 50 certificates within a week
+2. The number of application verification failures per hour for each domain name under each account is 5 times
+3. Only 5 duplicate certificates can be created per week, even through different accounts
+4. Each account with the same IP address can create up to 10 certificates every 3 hours
+5. Each multi-domain (SAN) SSL certificate (not a wildcard domain certificate) can only contain a maximum of 100 subdomains
+6. There is no limit to the number of times to update the certificate, but the update certificate will be limited by the above-mentioned duplicate certificates
+7. If it prompts that the certificate application fails, you can try to change the domain name and try again (adding or changing a different second-level domain name is also considered a new domain name)
+8. The same IP address, if you apply for a certificate too frequently in a short period of time, it will also be restricted. At this time, changing the domain name will not be successful, you can only wait for a period of time, or change the IP.
  
  
+##  Special Thanks Special Thanks
  
-## Installation Soga 
-## 安装其他 Linux 软件 和 V2board 服务器端 V2Ray-Poseidon 或 soga 
+1. Script thanks to https://github.com/sprov065/v2-ui
+2. Script thanks to https://github.com/Jrohy/trojan
+3. Script thanks to https://github.com/v2fly/v2ray-core
+4. Script thanks to https://github.com/XTLS/Xray-core
+5. Script thanks to https://github.com/trojan-gfw/trojan
+6. Script thanks to https://github.com/p4gefau1t/trojan-go
+7. Script thanks to https://github.com/ylx2016/Linux-NetSpeed
+8. The script thanks to Qiushui Yibing, Atrandys, V2ray official and Bozai for sharing, etc.
+9. The script thanks to JCNF's blog https://ybfl.xyz/111.html
  
-#### via curl 安装命令 
+ 
+ 
+##  Installation Soga
+##  Install other Linux software and V2board server-side V2Ray-Poseidon or soga
+ 
+####  via curl installation command
  
 ```bash
 curl -O https://raw.githubusercontent.com/jinwyp/one_click_script/master/linux_install_software.sh && chmod +x ./linux_install_software.sh && ./linux_install_software.sh
 ```
  
-#### via wget 安装命令 
+####  via wget installation command
  
 ```bash
 wget --no-check-certificate https://raw.githubusercontent.com/jinwyp/one_click_script/master/linux_install_software.sh && chmod +x ./linux_install_software.sh && ./linux_install_software.sh
@@ -195,12 +177,12 @@ wget --no-check-certificate https://raw.githubusercontent.com/jinwyp/one_click_s
  
  
  
-## Stargazers over time
-[![Stargazers over time](https://starchart.cc/jinwyp/one_click_script.svg)](https://starchart.cc/jinwyp/one_click_script)
+##  Stargazers over time
+[![ Stargazers over time ](https://starchart.cc/jinwyp/one_click_script.svg)](https://starchart.cc/jinwyp/one_click_script)
  
  
  
-[better-cloudflare-ip]: https://github.com/badafans/better-cloudflare-ip/releases
-[CFIP]: https://github.com/BlueSkyXN/CFIP/releases
-[CloudflareScanner]: https://github.com/Spedoske/CloudflareScanner/releases/tag/1.1.2
+[ better-cloudflare-ip ]: https://github.com/badafans/better-cloudflare-ip/releases
+[ CFIP ]: https://github.com/BlueSkyXN/CFIP/releases
+[ CloudflareScanner ]: https://github.com/Spedoske/CloudflareScanner/releases/tag/1.1.2
 [ CloudflareSpeedTest ]: https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v1.4.9
